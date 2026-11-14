@@ -4,6 +4,7 @@ namespace App\Services\Api\V1\Academy;
 
 use App\Enum\Booking\BookingStatusEnum;
 use App\Enum\Course\CourseTypeEnum;
+use App\Enum\Recording\RecordingTypeEnum;
 use App\Exceptions\Booking\AlreadyBookedException;
 use App\Models\Booking;
 use App\Models\Course;
@@ -11,6 +12,7 @@ use App\Models\Teacher;
 use App\Models\User;
 use App\Repositories\Booking\BookingRepositoryInterface;
 use App\Repositories\Course\CourseRepositoryInterface;
+use App\Repositories\Recording\RecordingRepositoryInterface;
 use App\Repositories\Teacher\TeacherRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -28,7 +30,14 @@ class AcademyService
         private readonly CourseRepositoryInterface $courses,
         private readonly BookingRepositoryInterface $bookings,
         private readonly TeacherRepositoryInterface $teachers,
+        private readonly RecordingRepositoryInterface $recordings,
     ) {}
+
+    /** «التسجيلات»: مواد الأكاديمية (PDF / صوت / فيديو / روابط) — متاحة للكل. */
+    public function recordings(?RecordingTypeEnum $type = null): Collection
+    {
+        return $this->recordings->forApp($type);
+    }
 
     public function teachers(): Collection
     {

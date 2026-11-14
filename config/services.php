@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+
+    // رابط تنزيل تطبيق الموبايل (آخر Release على GitHub بنفس اسم الملف)
+    'android_app' => [
+        'url' => env('ANDROID_APP_URL', 'https://github.com/Ahmedibrahim1998/Ibn-Eljezery/releases/latest/download/IbnEljezery-demo.apk'),
+    ],
 ];

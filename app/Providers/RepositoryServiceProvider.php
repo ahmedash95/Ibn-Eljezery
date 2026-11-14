@@ -18,6 +18,8 @@ use App\Repositories\Learning\LessonRepository;
 use App\Repositories\Learning\LessonRepositoryInterface;
 use App\Repositories\Booking\BookingRepository;
 use App\Repositories\Booking\BookingRepositoryInterface;
+use App\Repositories\Recording\RecordingRepository;
+use App\Repositories\Recording\RecordingRepositoryInterface;
 use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
 use App\Repositories\Program\ProgramRepository;
@@ -51,6 +53,7 @@ class RepositoryServiceProvider extends ServiceProvider
         LessonRepositoryInterface::class => LessonRepository::class,
         UserRepositoryInterface::class => UserRepository::class,
         BookingRepositoryInterface::class => BookingRepository::class,
+        RecordingRepositoryInterface::class => RecordingRepository::class,
     ];
 
     public function register(): void

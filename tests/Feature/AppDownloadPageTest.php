@@ -13,7 +13,8 @@ class AppDownloadPageTest extends TestCase
     {
         $this->get('/app')
             ->assertOk()
-            ->assertSee('تطبيق ابن الجزري');
+            ->assertSee('تطبيق ابن الجزري')
+            ->assertSee('releases/latest/download/IbnEljezery-demo.apk', false);
     }
 
     public function test_privacy_page_mentions_account_deletion(): void

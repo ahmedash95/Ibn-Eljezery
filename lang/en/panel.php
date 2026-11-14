@@ -227,6 +227,19 @@ return [
         'more' => 'More',
     ],
 
+    'student' => [
+        'nav' => 'App students',
+        'label' => 'Student',
+        'plural' => 'App students',
+        'name' => 'Name',
+        'phone' => 'Mobile',
+        'email' => 'Email',
+        'bookings' => 'Bookings',
+        'joined' => 'Joined',
+        'teacher' => 'Teacher',
+        'whatsapp' => 'WhatsApp',
+    ],
+
     'supervisor' => [
         'nav' => 'Attendance Supervisors',
         'label' => 'Supervisor',

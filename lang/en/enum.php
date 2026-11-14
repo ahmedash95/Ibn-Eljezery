@@ -59,4 +59,11 @@ return [
         'intermediate' => 'Intermediate',
         'advanced' => 'Advanced',
     ],
+
+    'recording_type' => [
+        'pdf' => 'PDF',
+        'audio' => 'Audio',
+        'video' => 'Video',
+        'link' => 'Link',
+    ],
 ];

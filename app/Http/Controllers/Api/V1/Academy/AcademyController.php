@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Api\V1\Academy;
 
 use App\Enum\Course\CourseTypeEnum;
+use App\Enum\Recording\RecordingTypeEnum;
 use App\Exceptions\Booking\AlreadyBookedException;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Api\SetLocaleFromHeader;
 use App\Http\Resources\Api\V1\Academy\CourseResource;
 use App\Http\Resources\Api\V1\Academy\CourseSessionResource;
 use App\Http\Resources\Api\V1\Academy\MyBookingResource;
+use App\Http\Resources\Api\V1\Academy\RecordingResource;
 use App\Http\Resources\Api\V1\Academy\StudentResource;
 use App\Http\Resources\Api\V1\Academy\TeacherCourseResource;
 use App\Http\Resources\Api\V1\Academy\TeacherResource;
@@ -40,6 +42,16 @@ class AcademyController extends Controller
         abort_if($request->filled('type') && $type === null, 422, 'Unknown course type.');
 
         return CourseResource::collection($this->service->courses($type));
+    }
+
+    /** «التسجيلات» (متاحة للكل): ?type=pdf|audio|video|link */
+    #[Get('recordings', name: 'api.v1.academy.recordings')]
+    public function recordings(Request $request): AnonymousResourceCollection
+    {
+        $type = $request->filled('type') ? RecordingTypeEnum::tryFrom($request->string('type')) : null;
+        abort_if($request->filled('type') && $type === null, 422, 'Unknown recording type.');
+
+        return RecordingResource::collection($this->service->recordings($type));
     }
 
     #[Get('teachers', name: 'api.v1.academy.teachers')]

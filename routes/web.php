@@ -18,7 +18,7 @@ Route::view('/portal', 'portal')->name('portal');
 // سياسة خصوصية تطبيق الموبايل (رابطها مطلوب في Google Play)
 Route::view('/privacy', 'privacy')->name('privacy');
 
-// صفحة تنزيل تطبيق الموبايل (الـ APK في public/downloads أو storage/app/public/downloads)
+// صفحة تنزيل تطبيق الموبايل (الزرار بيفتح آخر Release للتطبيق على GitHub)
 Route::view('/app', 'app-download')->name('app.download');
 
 // "View all" listing pages

@@ -59,4 +59,11 @@ return [
         'intermediate' => 'متوسط',
         'advanced' => 'متقدم',
     ],
+
+    'recording_type' => [
+        'pdf' => 'ملف PDF',
+        'audio' => 'تسجيل صوتي',
+        'video' => 'فيديو',
+        'link' => 'رابط',
+    ],
 ];
